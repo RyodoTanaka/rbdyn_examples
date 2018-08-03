@@ -10,10 +10,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
-add_executable(RevRobot
-  src/RevRobot.cpp
+add_executable(robot_config_example
+  src/robot_config_example.cpp
 )
-target_link_libraries(RevRobot
+target_link_libraries(robot_config_example
   RBDyn
 )
 

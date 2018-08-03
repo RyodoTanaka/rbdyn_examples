@@ -4,13 +4,6 @@ C++ examples to utilize
 - [RBDyn](https://github.com/jrl-umi3218/RBDyn.git)
 - [mc_rbdyn_urdf](https://github.com/jrl-umi3218/mc_rbdyn_urdf.git)
 
-Here is the examples
-
-|Program file | About |
-|:---:|:---|
-|RevRobot.cpp| Just road the robot description from source code.|
-|urdf_example.cpp| Road robot description from URDF file.|
-
 ## Installation 
 #### 1. Install RBDyn
 ```bash
@@ -50,11 +43,11 @@ $ rbdynrun <TAB>
 ```
 
 ## Usage
-#### RevRobot.cpp
+#### robot_config_example.cpp
 ```bash
-$ rbdynrun RevRobot
+$ rbdynrun robot_config_example
 ```
-Just road the robot description from source code.|
+Just road the robot description from source code.
 
 #### urdf_example.cpp
 ```bash
