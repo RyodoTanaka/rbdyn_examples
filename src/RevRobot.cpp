@@ -30,7 +30,7 @@ int main(void)
   Eigen::Vector3d h = Eigen::Vector3d::Zero();
   //Vector3d h = Vector3d(0, -0.25, 0);
 
-  rbd::RBInertiad rbi(mass, h, I);
+  sva::RBInertiad rbi(mass, h, I);
 
   rbd::Body b0(rbi, "b0");
   rbd::Body b1(rbi, "b1");
@@ -61,7 +61,7 @@ int main(void)
   mbg.linkBodies("b1", to, "b2", from, "j1");
   mbg.linkBodies("b2", to, "b3", from, "j2");
 
-  MultiBody mb = mbg.makeMultiBody("b0", isFixed);
+  MultiBody mb = mbg.makeMultiBody("b0", true);
 
   MultiBodyConfig mbc(mb);
   mbc.zero(mb);
