@@ -4,18 +4,18 @@
 SCRIPT_PATH=$( dirname ${BASH_SOURCE:-$0} )
 
 # ENV PATH
-export EIGEN_APPS_DIR=${SCRIPT_PATH}
-export EIGEN_APPS_EXE_FILES=$(echo `ls ${SCRIPT_PATH}/bin`)
+export RBDYN_APPS_DIR=${SCRIPT_PATH}
+export RBDYN_APPS_EXE_FILES=$(echo `ls ${SCRIPT_PATH}/bin`)
 
-function _func_complete_eigenrun()
+function _func_complete_rbdynrun()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
     if [ "$COMP_CWORD" -eq 1 ]; then
-        COMPREPLY=( $(compgen -W "$EIGEN_APPS_EXE_FILES" -- $cur) )
+        COMPREPLY=( $(compgen -W "$RBDYN_APPS_EXE_FILES" -- $cur) )
 fi
 }
 
-function func_eigen()
+function func_rbdyn()
 {
     core=$(find ${SCRIPT_PATH}/bin -name $1)
     option=$(echo $@ | sed -e "s/$1//g")
@@ -23,5 +23,5 @@ function func_eigen()
     $command
 }
 
-alias eigenrun=func_eigen
-complete -o default -F _func_complete_eigenrun eigenrun
+alias rbdynrun=func_rbdyn
+complete -o default -F _func_complete_rbdynrun rbdynrun
