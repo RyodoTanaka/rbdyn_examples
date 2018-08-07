@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="xxx_arm">
+
+  <link name="b0"/>
+
+  <link name="b1"/>
+  <joint name="j0" type="revolute">
+    <origin xyz="2.0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="b0"/>
+    <child link="b1"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+
+  <link name="b2"/>
+  <joint name="j1" type="revolute">
+    <origin xyz="2.0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="b1"/>
+    <child link="b2"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+
+  <link name="b3"/>
+  <joint name="j2" type="revolute">
+    <origin xyz="2.0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="b2"/>
+    <child link="b3"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+</robot>
