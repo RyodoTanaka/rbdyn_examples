@@ -19,10 +19,6 @@ std::tuple<rbd::MultiBody, rbd::MultiBodyConfig, rbd::MultiBodyGraph> func(void)
 
 int main(void)
 {
-  using namespace Eigen;
-  using namespace sva;
-  using namespace rbd;
-
   rbd::MultiBodyGraph mbg;
 
   double mass = 1.;
@@ -42,9 +38,9 @@ int main(void)
   mbg.addBody(b2);
   mbg.addBody(b3);
 
-  rbd::Joint j0(Joint::RevX, true, "j0");
-  rbd::Joint j1(Joint::RevX, true, "j1");
-  rbd::Joint j2(Joint::RevX, true, "j2");
+  rbd::Joint j0(rbd::Joint::RevX, true, "j0");
+  rbd::Joint j1(rbd::Joint::RevX, true, "j1");
+  rbd::Joint j2(rbd::Joint::RevX, true, "j2");
 
   mbg.addJoint(j0);
   mbg.addJoint(j1);
@@ -61,9 +57,9 @@ int main(void)
   mbg.linkBodies("b1", to, "b2", from, "j1");
   mbg.linkBodies("b2", to, "b3", from, "j2");
 
-  MultiBody mb = mbg.makeMultiBody("b0", true);
+  rbd::MultiBody mb = mbg.makeMultiBody("b0", true);
 
-  MultiBodyConfig mbc(mb);
+  rbd::MultiBodyConfig mbc(mb);
   mbc.zero(mb);
 
   return 0;
