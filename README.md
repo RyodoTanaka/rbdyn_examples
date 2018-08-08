@@ -47,11 +47,11 @@ $ rbdynrun <TAB>
 ```bash
 $ rbdynrun robot_config_example
 ```
-Just road the robot description from source code.
+Just load the robot description from source code.
 
 #### urdf_fk.cpp
 ```bash
 $ rbdynrun urdf_fk
 ```
-Road robot description from URDF file.
+Load robot description from URDF file.
 Then solve the FK and print the homogeneous matrix for each links in the world frame.
