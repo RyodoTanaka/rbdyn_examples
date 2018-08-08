@@ -17,10 +17,10 @@ target_link_libraries(robot_config_example
   RBDyn
 )
 
-add_executable(urdf_example
-  src/urdf_example.cpp
+add_executable(urdf_fk
+  src/urdf_fk.cpp
 )
-target_link_libraries(urdf_example
+target_link_libraries(urdf_fk
   RBDyn
   mc_rbdyn_urdf
 )
