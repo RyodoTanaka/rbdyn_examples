@@ -1,6 +1,8 @@
 #include <mc_rbdyn_urdf/urdf.h>
 #include <RBDyn/FK.h>
 #include <SpaceVecAlg/Conversions.h>
+#include <Eigen/Core>
+
 
 #include <iostream>
 #include <fstream>
@@ -8,11 +10,13 @@
 
 int main(int argc, char** argv)
 {
-  if(argc==1){
-    std::cout << "You need URDF file as an argument." << std::endl;
-    return 1;
-  }
-  std::ifstream ifs(argv[1]);
+  std::string filename;
+  if(argc!=1)
+    filename = argv[1];
+  else
+    filename = "urdf/zzz_arm.urdf";
+
+  std::ifstream ifs(filename);
   std::string urdf((std::istreambuf_iterator<char>(ifs)), std::istreambuf_iterator<char>());
     
   auto strRobot = mc_rbdyn_urdf::rbdyn_from_urdf(urdf);
