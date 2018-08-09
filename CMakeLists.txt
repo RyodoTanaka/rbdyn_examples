@@ -24,3 +24,11 @@ target_link_libraries(urdf_fk
   RBDyn
   mc_rbdyn_urdf
 )
+
+add_executable(urdf_ik
+  src/urdf_ik.cpp
+)
+target_link_libraries(urdf_ik
+  RBDyn
+  mc_rbdyn_urdf
+)
