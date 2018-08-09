@@ -53,5 +53,12 @@ Just load the robot description from source code.
 ```bash
 $ rbdynrun urdf_fk
 ```
-Load robot description from URDF file.
+Load robot description from URDF file.  
 Then solve the FK and print the homogeneous matrix for each links in the world frame.
+
+#### urdf_ik.cpp
+```bash
+$ rbdynrun urdf_ik
+```
+Load robot description from URDF file.  
+Then solve the IK and print the homogeneous matrix for each links in the world frame.
