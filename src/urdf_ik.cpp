@@ -3,11 +3,21 @@
 #include <SpaceVecAlg/Conversions.h>
 #include <Eigen/Core>
 
-
 #include <iostream>
 #include <fstream>
 #include <cmath>
 
+/////////////////////////////////////////////////
+// RotationFromRPY
+/////////////////////////////////////////////////
+// Returns 3x3 affine rotation matrix from RPY
+//   argument
+//     roll  : roll rotation in radian
+//     pitch : pitch rotation in radian
+//     yaw   : yaw rotation in radian
+//   return
+//     Eigen::Affine3d rotation matrix
+////////////////////////////////////////////////
 Eigen::Affine3d RotationFromRPY(const double roll, const double pitch, const double yaw)
 {
   using namespace Eigen;
@@ -17,7 +27,18 @@ Eigen::Affine3d RotationFromRPY(const double roll, const double pitch, const dou
                   * AngleAxisd(yaw, Vector3d::UnitZ()) );
 }
 
-
+//////////////////////////////////////////////////////
+// setHomogeneous
+//////////////////////////////////////////////////////
+// Returns 4x4 homogeneous matrix from (x,y,z,R,P,Y)
+//   argument
+//     x     : x position
+//     y     : y position
+//     z     : z position
+//     roll  : roll in radian
+//     pitch : pitch in radian
+//     yaw   : yaw in radian
+//////////////////////////////////////////////////////
 inline Eigen::Matrix4d setHomogeneous(const double x,
                                       const double y,
                                       const double z,
@@ -58,7 +79,7 @@ int main(int argc, char** argv)
   // Convert from Homogeneous matrix to PTransformed
   sva::PTransformd ef_target = sva::conversions::fromHomogeneous(ef_homogeneous,sva::conversions::RightHanded);
   
-  // // // Solve the IK
+  // Solve the IK
   bool ik_result = IK.inverseKinematics(strRobot.mb, strRobot.mbc, ef_target);
 
   if(ik_result)
