@@ -1,0 +1,12 @@
+name : ryodo
+age : 26
+likes : ["joint0", 10.89, 1]
+
+obstacle1:
+  type : "circle"
+  point : [2,3]
+
+obstacle2:
+  type : "line segment"
+  from : [0,1]
+  to : [5,6]

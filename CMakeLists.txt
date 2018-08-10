@@ -32,3 +32,10 @@ target_link_libraries(urdf_ik
   RBDyn
   mc_rbdyn_urdf
 )
+
+add_executable(yaml_test
+  src/yaml_test.cpp
+)
+target_link_libraries(yaml_test
+  yaml-cpp
+)
