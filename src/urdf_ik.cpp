@@ -69,9 +69,12 @@ int main(int argc, char** argv)
   // set ParsedResult from URDF file
   auto strRobot = mc_rbdyn_urdf::rbdyn_from_urdf(urdf);
 
+  // get body index map
+  auto body_map = strRobot.mb.bodyIndexByName();
+  
   // Set the Inverse Kinematics Class
-  // End link index is 4 for zzz_arm
-  rbd::InverseKinematics IK(strRobot.mb, 4);
+  // In this case, "b4" is set as end link
+  rbd::InverseKinematics IK(strRobot.mb, body_map["b4"]);
 
   // Homogeneous matrix for end link
   Eigen::Matrix4d ef_homogeneous = setHomogeneous(1,1,0,0,0,M_PI/6);
