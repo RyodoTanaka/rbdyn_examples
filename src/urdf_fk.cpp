@@ -22,10 +22,13 @@ int main(int argc, char** argv)
   // set ParsedResult from URDF file
   auto strRobot = mc_rbdyn_urdf::rbdyn_from_urdf(urdf);
 
+  // get joint index map
+  auto joint_map = strRobot.mb.jointIndexByName();
+  
   // set values for each joints
-  strRobot.mbc.q[1][0] = M_PI/3;
-  strRobot.mbc.q[2][0] = -M_PI/3;
-  strRobot.mbc.q[3][0] = -M_PI/3;
+  strRobot.mbc.q[joint_map["j0"]][0] = M_PI/3;
+  strRobot.mbc.q[joint_map["j1"]][0] = -M_PI/3;
+  strRobot.mbc.q[joint_map["j2"]][0] = -M_PI/3;
 
   // Solve the FK
   rbd::forwardKinematics(strRobot.mb, strRobot.mbc);
