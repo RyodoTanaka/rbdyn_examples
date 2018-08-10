@@ -7,9 +7,9 @@ C++ examples to utilize
 
 ## Installation
 ### Install by script
-````bash
+```bash
 $ source install.bash
-``
+```
 
 ### Install by manual
 #### 0. Install dependencies
