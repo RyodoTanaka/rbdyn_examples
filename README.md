@@ -1,6 +1,9 @@
 # RBDyn Examples
-C++ examples to utilize
+C++ examples to utilize RBDyn.  
 
+### Dependencies
+
+- [Eigen3ToPython](https://github.com/jrl-umi3218/Eigen3ToPython)
 - [SpaceVecAlg](https://github.com/jrl-umi3218/SpaceVecAlg)
 - [RBDyn](https://github.com/jrl-umi3218/RBDyn)
 - [mc_rbdyn_urdf](https://github.com/jrl-umi3218/mc_rbdyn_urdf)
@@ -14,54 +17,65 @@ $ source install.bash
 ### Install by manual
 #### 0. Install dependencies
 ```bash
-$ sudo apt install git cmake pkg-config doxygen g++ libboost-dev libeigen3-dev libyaml-cpp-dev
+$ sudo apt-get install git cmake pkg-config doxygen g++ libboost1.58-dev libboost1.58-all-dev libeigen3-dev libyaml-cpp-dev python-pip python2.7-dev make libtinyxml2-dev libnotify-bin -y
 ```
 
-#### 1. Install SpaceVecAlg
+#### 1. Install Eigen3ToPython
+```bash
+$ git clone --recursive https://github.com/jrl-umi3218/Eigen3ToPython.git
+$ cd Eigen3ToPython
+$ mkdir build
+$ cd build
+$ cmake .. -DPYTHON_BINDING_USER_INSTALL=ON
+$ make -j`nproc`
+$ sudo make install
+```
+
+#### 2. Install SpaceVecAlg
 ```bash
 $ git clone --recursive https://github.com/jrl-umi3218/SpaceVecAlg.git
 $ cd SpaceVecAlg
 $ mkdir build
 $ cd build
-$ cmake -DPYTHON_BINDING=OFF ..
+$ cmake .. -DPYTHON_BINDING=ON -DPYTHON_BINDING_USER_INSTALL=ON
 $ make -j`nproc`
 $ sudo make install
 ```
 
-#### 2. Install RBDyn
+#### 3. Install RBDyn
 ```bash
 $ git clone --recursive https://github.com/jrl-umi3218/RBDyn.git
 $ cd RBDyn
 $ mkdir build
 $ cd build
-$ cmake -DPYTHON_BINDING=OFF ..
+$ cmake .. -DPYTHON_BINDING=ON -DPYTHON_BINDING_USER_INSTALL_DEFAULT=ON -DPYTHON_BINDING_USER_INSTALL=ON
 $ make -j`nproc`
 $ sudo make install
 ```
 
-#### 3. Install mc_rbdyn_urdf
+#### 4. Install mc_rbdyn_urdf
 ```bash
 $ git clone --recursive https://github.com/jrl-umi3218/mc_rbdyn_urdf.git
 $ cd mc_rbdyn_urdf
 $ mkdir build
 $ cd build
-$ cmake -DPYTHON_BINDING=OFF ..
+$ cmake .. -DPYTHON_BINDING=ON -DPYTHON_BINDING_USER_INSTALL=ON
 $ make -j`nproc`
 $ sudo make install
 ```
 
-#### 4. Export environment argument
+#### 5. Export environment argument
 ```bash
 $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ```
 
-#### 5. Build RBDyn_example
+#### 6. Build RBDyn_example
 ```bash
 $ cd rbdyn_examples
 $ source compile.bash
 ```
 
-#### 6. Execute examples
+#### 7. Execute examples
 ```bash
 $ rbdynrun <TAB>
 ```
