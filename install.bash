@@ -53,4 +53,4 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 # Build the rbdyn_example
 cd rbdyn_examples
 source compile.bash
-return $$
+return $?
