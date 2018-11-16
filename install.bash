@@ -6,8 +6,8 @@ CURRENT=$(pwd)
 # Pre requirements
 sudo apt-get install git cmake pkg-config doxygen g++ libboost1.58-dev libboost1.58-all-dev libeigen3-dev libyaml-cpp-dev python-pip python2.7-dev make libtinyxml2-dev notify-osd -y
 
-# Eigen3ToPython
 cd ../
+# Eigen3ToPython
 git clone --recursive https://github.com/jrl-umi3218/Eigen3ToPython.git
 cd Eigen3ToPython
 mkdir build
@@ -18,7 +18,6 @@ sudo make install
 cd ../..
 
 # SpaceVecAlg
-cd ../
 git clone --recursive https://github.com/jrl-umi3218/SpaceVecAlg.git
 cd SpaceVecAlg
 mkdir build
