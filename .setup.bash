@@ -9,6 +9,7 @@ export RBDYN_APPS_EXE_FILES=$(echo `ls ${SCRIPT_PATH}/bin`)
 
 function _func_complete_rbdynrun()
 {
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     local cur=${COMP_WORDS[COMP_CWORD]}
     if [ "$COMP_CWORD" -eq 1 ]; then
         COMPREPLY=( $(compgen -W "$RBDYN_APPS_EXE_FILES" -- $cur) )
