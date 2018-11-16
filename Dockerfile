@@ -6,6 +6,7 @@ RUN apt-get update \
  && apt-get install -y \
   sudo \
   apt-utils \
+  git \
  && apt-get clean
 
 RUN mkdir -p /home/user/workspace/rbdyn_ws
