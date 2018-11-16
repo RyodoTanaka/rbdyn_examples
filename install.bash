@@ -8,7 +8,7 @@ sudo apt-get install git cmake pkg-config doxygen g++ libboost1.58-dev libboost1
 
 # Eigen3ToPython
 cd ../
-git clone https://github.com/jrl-umi3218/Eigen3ToPython.git
+git clone --recursive https://github.com/jrl-umi3218/Eigen3ToPython.git
 cd Eigen3ToPython
 mkdir build
 cd build
@@ -52,6 +52,6 @@ cd ../..
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # Build the rbdyn_example
-cd ${CURRENT}
+cd rbdyn_examples
 source compile.bash
-cd ${CURRENT}
+return $$
