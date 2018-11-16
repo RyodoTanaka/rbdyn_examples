@@ -74,13 +74,12 @@ $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 $ cd rbdyn_examples
 $ source compile.bash
 ```
-
-#### 7. Execute examples
+## Usage
+### To Execute examples
 ```bash
 $ rbdynrun <TAB>
 ```
 
-## Usage
 #### robot_config_example.cpp
 ```bash
 $ rbdynrun robot_config_example
