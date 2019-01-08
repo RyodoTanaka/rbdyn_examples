@@ -86,6 +86,12 @@ $ rbdynrun robot_config_example
 ```
 Just load the robot description from source code.
 
+#### yaml_test.cpp
+```bash
+$ rbdynrun yaml_test
+```
+Just load YAML file from `yaml/test.yaml`
+
 #### urdf_fk.cpp
 ```bash
 $ rbdynrun urdf_fk
@@ -100,8 +106,11 @@ $ rbdynrun urdf_ik
 Load robot description from URDF file.  
 Then solve the IK and print the homogeneous matrix for each links in the world frame.
 
-#### yaml_test.cpp
+#### urdf_jacobian.cpp
 ```bash
-$ rbdynrun yaml_test
+$ rbdynrun urdf_jacobian
 ```
-Load YAML file from `yaml/test.yaml`
+
+Load robot description from URDF file.  
+Then solve the FK and FV based on being set parameters.  
+After that, get the jacobians & velocities for each body (link).
