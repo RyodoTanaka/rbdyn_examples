@@ -1,0 +1,19 @@
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+language: generic
+
+compiler:
+  - gcc
+
+notifications:
+  email:
+    on_success: never
+    on_failue: never
+  slack: jrl-umi3218:ILpCTKGC2JZcxOLLoT1uFreE
+
+script:
+  - source .docker_build.bash
