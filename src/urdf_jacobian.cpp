@@ -29,10 +29,11 @@ int main(int argc, char** argv)
   // get Body
   auto body = strRobot.mb.bodies();
 
-  // set the Joint value
-  strRobot.mbc.q[joint_map["j0"]][0] = M_PI/3;
-  strRobot.mbc.q[joint_map["j1"]][0] = -M_PI/3;
-  strRobot.mbc.q[joint_map["j2"]][0] = -M_PI/3;
+  // set the Joint value & solve FK
+  strRobot.mbc.q[joint_map["j0"]][0] = M_PI/2;
+  strRobot.mbc.q[joint_map["j1"]][0] = M_PI/3;
+  strRobot.mbc.q[joint_map["j2"]][0] = -M_PI/2;
+  rbd::forwardKinematics(strRobot.mb, strRobot.mbc);
   
   // get Every Jacobian Matrix in every Body
   for(auto itr=body.begin(); itr!=body.end(); itr++){
