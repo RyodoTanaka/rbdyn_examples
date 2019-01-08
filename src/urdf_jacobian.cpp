@@ -68,7 +68,15 @@ int main(int argc, char** argv)
     std::cout << jacB << std::endl;
     std::cout << "== Full Jacobian in body frame of " <<  itr->name() << " ==" << std::endl;
     std::cout << sparseJacB << std::endl;
-    
+
+    // Get Velocity
+    auto velO = jac.velocity(strRobot.mb, strRobot.mbc);
+    auto velB = jac.bodyVelocity(strRobot.mb, strRobot.mbc);
+
+    std::cout << "== Body Velocity in Origin frame orientation of " <<  itr->name() << " ==" << std::endl;
+    std::cout << velO << std::endl;
+    std::cout << "== Body Velocity in body frame orientation of " <<  itr->name() << " ==" << std::endl;
+    std::cout << velB << std::endl;
   }
   
   return 0;
