@@ -1,4 +1,4 @@
-# RBDyn Examples [![Build Status](https://travis-ci.org/RyodoTanaka/rbdyn_examples.svg?branch=master)](https://travis-ci.org/RyodoTanaka/rbdyn_examples) [![Docker](https://img.shields.io/badge/rbdyn_example-latest-blue.svg?style=popout&logo=docker)](https://cloud.docker.com/repository/docker/ryodo/rbdyn_examples)
+# RBDyn Examples [![Build Status](https://travis-ci.org/RyodoTanaka/rbdyn_examples.svg?branch=master)](https://travis-ci.org/RyodoTanaka/rbdyn_examples) [![Docker](https://img.shields.io/badge/docker-rbdyn_example-blue.svg?style=popout&logo=docker)](https://cloud.docker.com/repository/docker/ryodo/rbdyn_examples)
 C++ examples to utilize RBDyn.  
 
 ### Dependencies
