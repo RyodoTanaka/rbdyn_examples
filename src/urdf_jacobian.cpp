@@ -1,5 +1,6 @@
 #include <mc_rbdyn_urdf/urdf.h>
 #include <RBDyn/FK.h>
+#include <RBDyn/FV.h>
 #include <RBDyn/Jacobian.h>
 #include <SpaceVecAlg/Conversions.h>
 #include <Eigen/Core>
@@ -34,6 +35,12 @@ int main(int argc, char** argv)
   strRobot.mbc.q[joint_map["j1"]][0] = M_PI/3;
   strRobot.mbc.q[joint_map["j2"]][0] = -M_PI/2;
   rbd::forwardKinematics(strRobot.mb, strRobot.mbc);
+
+  // set the Joint velocity & solve FV (Forward Velocity)
+  strRobot.mbc.alpha[joint_map["j0"]][0] = M_PI/12;
+  strRobot.mbc.alpha[joint_map["j1"]][0] = -M_PI/6;
+  strRobot.mbc.alpha[joint_map["j2"]][0] = M_PI/24;
+  rbd::forwardVelocity(strRobot.mb, strRobot.mbc);
   
   // get Every Jacobian Matrix in every Body
   for(auto itr=body.begin(); itr!=body.end(); itr++){
