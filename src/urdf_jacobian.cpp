@@ -44,8 +44,9 @@ int main(int argc, char** argv)
   
   // get Every Jacobian Matrix in every Body
   for(auto itr=body.begin(); itr!=body.end(); itr++){
-    // Get Jacobian  
+    // Get Jacobian
     rbd::Jacobian jac(strRobot.mb, itr->name());
+    // Get Kinematics Jacobian  
     const Eigen::MatrixXd& jacO = jac.jacobian(strRobot.mb, strRobot.mbc);
     const Eigen::MatrixXd& jacB = jac.bodyJacobian(strRobot.mb, strRobot.mbc);
     // Get FullJacobian
