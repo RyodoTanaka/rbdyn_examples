@@ -58,7 +58,7 @@ int main(int argc, char** argv)
     std::cout << sparseJacO << std::endl;
     std::cout << "== Dense Jacobian in body frame orientation ==" << std::endl;
     std::cout << jacB << std::endl;
-    std::cout << "== Full Jacobian in body frame orientation ==" << std::endl;
+    std::cout << "== Full Jacobian in body frame ==" << std::endl;
     std::cout << sparseJacB << std::endl;
     
   }
