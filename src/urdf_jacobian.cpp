@@ -39,13 +39,28 @@ int main(int argc, char** argv)
   for(auto itr=body.begin(); itr!=body.end(); itr++){
     // Get Jacobian  
     rbd::Jacobian jac(strRobot.mb, itr->name());
+    const Eigen::MatrixXd& jacO = jac.jacobian(strRobot.mb, strRobot.mbc);
+    const Eigen::MatrixXd& jacB = jac.bodyJacobian(strRobot.mb, strRobot.mbc);
+    // Get FullJacobian
+    Eigen::MatrixXd sparseJacO(6,body.size());
+    Eigen::MatrixXd sparseJacB(6,body.size());
 
-    // Get Jacobian Matrix
-    const Eigen::MatrixXd& jac_mat = jac.jacobian(strRobot.mb,strRobot.mbc);
-
+    jac.fullJacobian(strRobot.mb, jacO, sparseJacO);
+    jac.fullJacobian(strRobot.mb, jacB, sparseJacB);
+    
     // Print the result
+    std::cout << "===============================================" << std::endl;
     std::cout << "== " << itr->name() << " Jacobian Matrix == " << std::endl;
-    std::cout << jac_mat << std::endl;
+    std::cout << "===============================================" << std::endl;
+    std::cout << "== Dense Jacobian in Origin frame orientation ==" << std::endl;
+    std::cout << jacO << std::endl;
+    std::cout << "== Full Jacobian in Origin frame orientation ==" << std::endl;
+    std::cout << sparseJacO << std::endl;
+    std::cout << "== Dense Jacobian in body frame orientation ==" << std::endl;
+    std::cout << jacB << std::endl;
+    std::cout << "== Full Jacobian in body frame orientation ==" << std::endl;
+    std::cout << sparseJacB << std::endl;
+    
   }
   
   return 0;
