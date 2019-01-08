@@ -1,4 +1,4 @@
-# RBDyn Examples
+# RBDyn Examples [![Build Status](https://travis-ci.org/RyodoTanaka/rbdyn_examples.svg?branch=master)](https://travis-ci.org/RyodoTanaka/rbdyn_examples)
 C++ examples to utilize RBDyn.  
 
 ### Dependencies
