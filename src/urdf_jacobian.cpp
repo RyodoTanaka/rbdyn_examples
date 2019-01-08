@@ -60,13 +60,13 @@ int main(int argc, char** argv)
     std::cout << "===============================================" << std::endl;
     std::cout << "== " << itr->name() << " Jacobian Matrix == " << std::endl;
     std::cout << "===============================================" << std::endl;
-    std::cout << "== Dense Jacobian in Origin frame orientation ==" << std::endl;
+    std::cout << "== Dense Jacobian in Origin frame orientation of " <<  itr->name() << " ==" << std::endl;
     std::cout << jacO << std::endl;
-    std::cout << "== Full Jacobian in Origin frame orientation ==" << std::endl;
+    std::cout << "== Full Jacobian in Origin frame orientation of " <<  itr->name() << " ==" << std::endl;
     std::cout << sparseJacO << std::endl;
-    std::cout << "== Dense Jacobian in body frame orientation ==" << std::endl;
+    std::cout << "== Dense Jacobian in body frame orientation of " <<  itr->name() << " ==" << std::endl;
     std::cout << jacB << std::endl;
-    std::cout << "== Full Jacobian in body frame ==" << std::endl;
+    std::cout << "== Full Jacobian in body frame of " <<  itr->name() << " ==" << std::endl;
     std::cout << sparseJacB << std::endl;
     
   }
