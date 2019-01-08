@@ -10,32 +10,19 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../bin)
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
-add_executable(robot_config_example
-  src/robot_config_example.cpp
-)
-target_link_libraries(robot_config_example
-  RBDyn
-)
-
-add_executable(urdf_fk
-  src/urdf_fk.cpp
-)
-target_link_libraries(urdf_fk
-  RBDyn
-  mc_rbdyn_urdf
+set(SOURCE_CODE
+  robot_config_example
+  yaml_test
+  urdf_fk
+  urdf_ik
+  urdf_jacobian
 )
 
-add_executable(urdf_ik
-  src/urdf_ik.cpp
-)
-target_link_libraries(urdf_ik
-  RBDyn
-  mc_rbdyn_urdf
-)
-
-add_executable(yaml_test
-  src/yaml_test.cpp
-)
-target_link_libraries(yaml_test
-  yaml-cpp
-)
+foreach(src ${SOURCE_CODE})
+  add_executable(${src} src/${src}.cpp)
+  target_link_libraries(${src}
+    yaml-cpp
+    RBDyn
+    mc_rbdyn_urdf
+   )
+endforeach(src)
