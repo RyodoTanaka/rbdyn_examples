@@ -32,8 +32,8 @@ int main(int argc, char** argv)
 
   // set the Joint value & solve FK
   strRobot.mbc.q[joint_map["j0"]][0] = M_PI/2;
-  strRobot.mbc.q[joint_map["j1"]][0] = M_PI/3;
-  strRobot.mbc.q[joint_map["j2"]][0] = -M_PI/2;
+  strRobot.mbc.q[joint_map["j1"]][0] = M_PI/2;
+  strRobot.mbc.q[joint_map["j2"]][0] = M_PI/2;
   rbd::forwardKinematics(strRobot.mb, strRobot.mbc);
 
   // set the Joint velocity & solve FV (Forward Velocity)
@@ -53,8 +53,14 @@ int main(int argc, char** argv)
     Eigen::MatrixXd sparseJacO(6,body.size());
     Eigen::MatrixXd sparseJacB(6,body.size());
 
+    // get PTransform
+    sva::PTransformd X_O_b = strRobot.mbc.bodyPosW[itr-body.begin()];
+    sva::PTransformd X_b_p = sva::PTransformd(jac.point());
+    sva::PTransformd X_O_p = X_b_p*X_O_b;
+    
     jac.fullJacobian(strRobot.mb, jacO, sparseJacO);
     jac.fullJacobian(strRobot.mb, jacB, sparseJacB);
+    const Eigen::MatrixXd &body_jac = jac.jacobian(strRobot.mb, strRobot.mbc, X_O_p);
     
     // Print the result
     std::cout << "===============================================" << std::endl;
@@ -77,6 +83,10 @@ int main(int argc, char** argv)
     std::cout << velO << std::endl;
     std::cout << "== Body Velocity in body frame orientation of " <<  itr->name() << " ==" << std::endl;
     std::cout << velB << std::endl;
+
+
+    std::cout << "== Body Jacobian ==" << std::endl;
+    std::cout << body_jac << std::endl;
   }
   
   return 0;
