@@ -16,6 +16,7 @@ set(SOURCE_CODE
   urdf_fk
   urdf_ik
   urdf_jacobian
+  # test
 )
 
 foreach(src ${SOURCE_CODE})
