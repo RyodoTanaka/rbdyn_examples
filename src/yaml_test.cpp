@@ -30,8 +30,8 @@ int main(int argc, char** argv)
     std::cout << doc["obstacle1"].size() << std::endl;
     std::cout << doc["obstacle1"]["type"].as<std::string>() << std::endl;
     std::cout << doc["obstacle2"].size() << std::endl;
-    std::cout << doc["obstacle2"]["from"].size() << std::endl;
-    std::cout << doc["obstacle2"]["from"][1].as<double>() << std::endl;
+    std::cout << doc["obstacle2"]["start"].size() << std::endl;
+    std::cout << doc["obstacle2"]["start"][1].as<double>() << std::endl;
   }
   
   return 0;
