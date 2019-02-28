@@ -5,7 +5,7 @@
 
   <link name="b1"/>
   <joint name="j0" type="revolute">
-    <origin xyz="1 1 0"/>
+    <origin xyz="2.0 0 0"/>
     <axis xyz="0 0 1"/>
     <parent link="world"/>
     <child link="b1"/>
