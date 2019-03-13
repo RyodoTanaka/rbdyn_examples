@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<robot name="tl01">
+
+  <link name="world"/>
+
+  <link name="link0x"/>
+  <joint name="joint0x" type="prismatic">
+    <parent link="world"/>
+    <child link="link0x"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="1.0" lower="-5" upper="25" velocity="10"/>
+  </joint>
+
+  <link name="link0y"/>
+  <joint name="joint0y" type="prismatic">
+    <parent link="link0x"/>
+    <child link="link0y"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="1.0" lower="-5" upper="10" velocity="10"/>
+  </joint>
+
+  <link name="link0"/>
+  <joint name="joint0" type="fixed">
+    <parent link="link0y"/>
+    <child link="link0"/>
+  </joint>
+  
+  <link name="link1"/>
+  <joint name="joint1" type="revolute">
+    <axis xyz="0 0 1"/>
+    <parent link="link0"/>
+    <child link="link1"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+
+  <link name="link2"/>
+  <joint name="joint2" type="fixed">
+    <origin xyz="0 -2.0 0"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+  </joint>
+
+  <link name="link2a"/>
+  <joint name="joint2a" type="revolute">
+    <axis xyz="0 0 1"/>
+    <parent link="link2"/>
+    <child link="link2a"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+
+  <link name="link2b"/>
+  <joint name="joint2b" type="fixed">
+    <origin xyz="0 -2.0 0"/>
+    <parent link="link2a"/>
+    <child link="link2b"/>
+  </joint>    
+  
+  <link name="link3"/>
+  <joint name="joint3" type="revolute">
+    <axis xyz="0 0 1"/>
+    <parent link="link0"/>
+    <child link="link3"/>
+    <limit effort="1.0" lower="-3.14" upper="3.14" velocity="3.14"/>
+  </joint>
+
+  <link name="link4"/>
+  <joint name="joint4" type="fixed">
+    <origin xyz="0 -2.0 0"/>
+    <parent link="link3"/>
+    <child link="link4"/>
+  </joint>
+</robot>
