@@ -16,6 +16,7 @@ set(SOURCE_CODE
   urdf_fk
   urdf_ik
   urdf_jacobian
+  com_test
   test
 )
 
