@@ -31,9 +31,9 @@ int main(int argc, char** argv)
 
     // set the Joint value & solve FK
     // strRobot.mbc.q[joint_map["joint0"]] = std::vector<double>{1,0,0,0,0,0,0};
-    strRobot.mbc.q[joint_map["joint0x"]][0] = 0.0;
+    strRobot.mbc.q[joint_map["joint0x"]][0] = 1.0;
     strRobot.mbc.q[joint_map["joint0y"]][0] = 0.0;
-    strRobot.mbc.q[joint_map["joint0z"]][0] = 0.0;
+    strRobot.mbc.q[joint_map["joint0z"]][0] = 2.0;
     strRobot.mbc.q[joint_map["joint1"]][0] = M_PI/4.;
     strRobot.mbc.q[joint_map["joint2"]][0] = -M_PI/4.;
     rbd::forwardKinematics(strRobot.mb, strRobot.mbc);
